@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Peloteros — Mundial 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:    #1a7a2e;
+      --verde-cl: #25a83e;
+      --dorado:   #d4a017;
+      --negro:    #0d0d0d;
+      --gris:     #1c1c1c;
+      --blanco:   #f5f5f0;
+      --texto:    #cccccc;
+    }
+
+    body {
+      background: var(--negro);
+      color: var(--blanco);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 24px 64px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #1a3a1e 0%, var(--negro) 70%);
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .hero::before {
+      content: "⚽";
+      position: absolute;
+      font-size: 320px;
+      top: -60px; right: -60px;
+      opacity: 0.04;
+      pointer-events: none;
+      animation: spin 30s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--verde-cl);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 12vw, 120px);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      color: var(--blanco);
+    }
+    .hero h1 span { color: var(--dorado); }
+    .hero-sub {
+      margin-top: 20px;
+      font-size: 15px;
+      color: var(--texto);
+      max-width: 480px;
+      margin-inline: auto;
+      line-height: 1.6;
+    }
+
+    /* ── GRUPOS GRID ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--verde-cl);
+      margin-bottom: 28px;
+    }
+    .grupos-section {
+      padding: 64px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .grupos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .grupo-card {
+      background: var(--gris);
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .grupo-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--verde-cl);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .grupo-card:hover { border-color: var(--verde-cl); transform: translateY(-2px); }
+    .grupo-card:hover::after { transform: scaleX(1); }
+
+    .card-letter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: var(--verde-cl);
+      line-height: 1;
+      opacity: 0.25;
+      position: absolute;
+      top: 16px; right: 20px;
+    }
+    .card-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--texto);
+    }
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    .card-teams {
+      font-size: 13px;
+      color: var(--texto);
+      line-height: 1.7;
+    }
+    .card-arrow {
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--verde-cl);
+    }
+
+    /* ── MIEMBROS ── */
+    .miembros-section {
+      background: var(--gris);
+      border-top: 1px solid #2a2a2a;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 56px 24px;
+    }
+    .miembros-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .miembros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .miembro-card {
+      background: var(--negro);
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 20px 18px;
+    }
+    .miembro-nombre {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .miembro-user {
+      font-size: 12px;
+      color: var(--verde-cl);
+      font-family: monospace;
+    }
+    .miembro-rol {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--dorado);
+      color: var(--negro);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .miembro-grupo {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 10px;
+      color: var(--texto);
+      letter-spacing: 1px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="eyebrow">Taller Mundialista · GitHub Colaborativo</p>
+    <h1>Los <span>Peloteros</span></h1>
+    <p class="hero-sub">Proyecto colaborativo desarrollado con GitHub. Explora los 6 grupos del mundial 2026.</p>
+  </header>
+
+  <!-- GRUPOS -->
+  <main class="grupos-section">
+    <p class="section-label">Grupos del Mundial</p>
+    <div class="grupos-grid">
+
+      <a class="grupo-card" href="Grupo_A/paginas/grupoA.html">
+        <span class="card-letter">A</span>
+        <span class="card-tag">Grupo</span>
+        <span class="card-title">Grupo A</span>
+        <p class="card-teams">🇪🇨 Ecuador · 🇶🇦 Qatar<br>🇸🇳 Senegal · 🇳🇱 Países Bajos</p>
+        <span class="card-arrow">Ver grupo →</span>
+      </a>
+
+      <a class="grupo-card" href="Grupo_B/paginas/grupoB.html">
+        <span class="card-letter">B</span>
+        <span class="card-tag">Grupo</span>
+        <span class="card-title">Grupo B</span>
+        <p class="card-teams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra · 🇮🇷 Irán<br>🇺🇸 Estados Unidos · 🇵🇰 Gales</p>
+        <span class="card-arrow">Ver grupo →</span>
+      </a>
+
+      <a class="grupo-card" href="Grupo_C/paginas/grupoC.html">
+        <span class="card-letter">C</span>
+        <span class="card-tag">Grupo</span>
+        <span class="card-title">Grupo C</span>
+        <p class="card-teams">🇦🇷 Argentina · 🇸🇦 Arabia Saudita<br>🇲🇽 México · 🇵🇱 Polonia</p>
+        <span class="card-arrow">Ver grupo →</span>
+      </a>
+
+      <a class="grupo-card" href="Grupo_D/paginas/grupoD.html">
+        <span class="card-letter">D</span>
+        <span class="card-tag">Grupo</span>
+        <span class="card-title">Grupo D</span>
+        <p class="card-teams">🇫🇷 Francia · 🇦🇺 Australia<br>🇩🇰 Dinamarca · 🇹🇳 Túnez</p>
+        <span class="card-arrow">Ver grupo →</span>
+      </a>
+
+      <a class="grupo-card" href="Grupo_E/paginas/grupoE.html">
+        <span class="card-letter">E</span>
+        <span class="card-tag">Grupo</span>
+        <span class="card-title">Grupo E</span>
+        <p class="card-teams">🇪🇸 España · 🇨🇷 Costa Rica<br>🇩🇪 Alemania · 🇯🇵 Japón</p>
+        <span class="card-arrow">Ver grupo →</span>
+      </a>
+
+      <a class="grupo-card" href="Grupo_F/paginas/grupoF.html">
+        <span class="card-letter">F</span>
+        <span class="card-tag">Grupo</span>
+        <span class="card-title">Grupo F</span>
+        <p class="card-teams">🇧🇪 Bélgica · 🇨🇦 Canadá<br>🇲🇦 Marruecos · 🇭🇷 Croacia</p>
+        <span class="card-arrow">Ver grupo →</span>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- MIEMBROS -->
+  <section class="miembros-section">
+    <div class="miembros-inner">
+      <p class="section-label">Equipo de Trabajo</p>
+      <div class="miembros-grid">
+
+        <div class="miembro-card">
+          <p class="miembro-nombre">Santiago Mosquera</p>
+          <p class="miembro-user">@zantycb89</p>
+          <span class="miembro-rol">⭐ Líder</span><br>
+          <span class="miembro-grupo">Grupo A</span>
+        </div>
+
+        <div class="miembro-card">
+          <p class="miembro-nombre">María Fernández</p>
+          <p class="miembro-user">@mfernandez22</p>
+          <span class="miembro-grupo">Grupo B</span>
+        </div>
+
+        <div class="miembro-card">
+          <p class="miembro-nombre">Carlos Quispe</p>
+          <p class="miembro-user">@cquispe_dev</p>
+          <span class="miembro-grupo">Grupo C</span>
+        </div>
+
+        <div class="miembro-card">
+          <p class="miembro-nombre">Ana Lucía Torres</p>
+          <p class="miembro-user">@aluciatorres</p>
+          <span class="miembro-grupo">Grupo D</span>
+        </div>
+
+        <div class="miembro-card">
+          <p class="miembro-nombre">Diego Salazar</p>
+          <p class="miembro-user">@dsalazar_gh</p>
+          <span class="miembro-grupo">Grupo E</span>
+        </div>
+
+        <div class="miembro-card">
+          <p class="miembro-nombre">Luisa Mendoza</p>
+          <p class="miembro-user">@lmendoza99</p>
+          <span class="miembro-grupo">Grupo F</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Los Peloteros · Taller Mundialista · GitHub Colaborativo · 2026</p>
+  </footer>
+
+</body>
+</html>
