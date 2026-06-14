@@ -1,0 +1,227 @@
+/* ==================================================
+   equipos.css — Hoja de estilos COMPARTIDA
+   Usada por todas las páginas de equipo del Grupo A
+   (Ecuador.html, Qatar.html, Senegal.html, PaisesBajos.html)
+   ================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --verde:    #1a7a2e;
+  --verde-cl: #25a83e;
+  --dorado:   #d4a017;
+  --negro:    #0d0d0d;
+  --gris:     #1c1c1c;
+  --gris-cl:  #252525;
+  --blanco:   #f5f5f0;
+  --texto:    #aaaaaa;
+}
+
+body {
+  background: var(--negro);
+  color: var(--blanco);
+  font-family: 'Inter', sans-serif;
+}
+
+/* NAV SUPERIOR */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.nav-back {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--verde-cl);
+  text-decoration: none;
+}
+.nav-back:hover { text-decoration: underline; }
+.nav-tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--dorado);
+  letter-spacing: 2px;
+}
+
+/* NAVEGACIÓN ENTRE EQUIPOS (pills) */
+.team-switch {
+  display: flex;
+  gap: 8px;
+  padding: 14px 28px;
+  border-bottom: 1px solid #1e1e1e;
+  flex-wrap: wrap;
+  background: var(--gris);
+}
+.team-pill {
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--texto);
+  background: var(--gris-cl);
+  border: 1px solid #2e2e2e;
+  border-radius: 30px;
+  padding: 8px 18px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.team-pill:hover {
+  border-color: var(--verde-cl);
+  color: var(--blanco);
+}
+.team-pill.active {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: var(--blanco);
+}
+
+/* HERO DE EQUIPO */
+.team-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 28px 50px;
+  border-bottom: 1px solid #222;
+}
+.team-hero-flag {
+  font-size: 90px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+.team-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 13vw, 110px);
+  line-height: 0.95;
+  letter-spacing: 2px;
+}
+.team-hero-meta {
+  margin-top: 14px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.meta-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--dorado);
+}
+.meta-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto);
+}
+
+/* SECCIONES */
+.section {
+  padding: 50px 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--verde-cl);
+  margin-bottom: 24px;
+}
+.section-text {
+  font-size: 14px;
+  color: var(--texto);
+  line-height: 1.8;
+  max-width: 640px;
+}
+
+/* TARJETAS JUGADORES */
+.jugadores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+.jugador-card {
+  background: var(--gris);
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.jugador-card:hover {
+  border-color: var(--verde-cl);
+  transform: translateY(-2px);
+}
+.jugador-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--verde-cl);
+  opacity: 0.5;
+}
+.jugador-nombre {
+  font-weight: 700;
+  font-size: 14px;
+}
+.jugador-pos {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--texto);
+}
+
+/* PALMARÉS / DATOS EXTRA */
+.datos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.dato-card {
+  background: var(--gris-cl);
+  border: 1px solid #2e2e2e;
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.dato-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+.dato-text {
+  font-size: 13px;
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 12px;
+  color: #555;
+  border-top: 1px solid #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer a {
+  color: var(--verde-cl);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}

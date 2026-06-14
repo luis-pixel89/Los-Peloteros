@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrantes — Los Peloteros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:    #1a7a2e;
+      --verde-cl: #25a83e;
+      --dorado:   #d4a017;
+      --negro:    #0d0d0d;
+      --gris:     #1c1c1c;
+      --gris-cl:  #252525;
+      --blanco:   #f5f5f0;
+      --texto:    #aaaaaa;
+    }
+
+    body { background: var(--negro); color: var(--blanco); font-family: 'Inter', sans-serif; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+      border-bottom: 1px solid #222;
+      position: sticky; top: 0;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(8px);
+    }
+    .nav-back { font-size: 13px; font-weight: 600; color: var(--verde-cl); text-decoration: none; }
+    .nav-back:hover { text-decoration: underline; }
+    .nav-tag { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--dorado); letter-spacing: 2px; }
+
+    .hero {
+      padding: 70px 28px 50px;
+      background: radial-gradient(ellipse 90% 70% at 30% 0%, #0e2f14 0%, var(--negro) 65%);
+      border-bottom: 1px solid #222;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--verde-cl); margin-bottom: 14px;
+    }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 13vw, 110px); line-height: 0.95; letter-spacing: 2px; }
+    .hero-sub { margin-top: 14px; color: var(--texto); font-size: 14px; max-width: 460px; line-height: 1.6; }
+
+    .integrantes-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 56px 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .integrante-card {
+      background: var(--gris);
+      border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .integrante-card:hover { border-color: var(--verde-cl); transform: translateY(-3px); }
+
+    .avatar {
+      width: 84px; height: 84px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--negro);
+      background: var(--verde-cl);
+      margin-bottom: 8px;
+      border: 3px solid var(--dorado);
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .integrante-nombre { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; }
+    .integrante-user { font-size: 12px; color: var(--verde-cl); font-family: monospace; }
+    .integrante-fecha { font-size: 12px; color: var(--texto); margin-top: 4px; }
+    .integrante-rol {
+      margin-top: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase;
+      background: var(--dorado); color: var(--negro);
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .integrante-grupo {
+      font-size: 11px; color: var(--texto); letter-spacing: 1px; margin-top: 2px;
+    }
+
+    .footer {
+      text-align: center; padding: 32px 24px; font-size: 12px; color: #555;
+      border-top: 1px solid #1e1e1e;
+    }
+    .footer a { color: var(--verde-cl); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-back">← Volver al inicio</a>
+    <span class="nav-tag">Integrantes</span>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Los Peloteros · Equipo de Trabajo</p>
+    <h1>Integrantes</h1>
+    <p class="hero-sub">Cada miembro del equipo agrega su propia tarjeta dentro del bloque correspondiente abajo. Para evitar conflictos de merge, edita solo tu sección.</p>
+  </header>
+
+  <main class="integrantes-grid">
+
+    <!-- ============================================ -->
+    <!-- INTEGRANTE: Santiago Mosquera (NO EDITAR fuera de este bloque) -->
+    <!-- ============================================ -->
+    <div class="integrante-card">
+      <div class="avatar">SM</div>
+      <p class="integrante-nombre">Santiago Mosquera</p>
+      <p class="integrante-user">@zantycb89</p>
+      <p class="integrante-fecha">📅 15 / 03 / 2003</p>
+      <span class="integrante-rol">⭐ Líder</span>
+      <span class="integrante-grupo">Grupo A</span>
+    </div>
+    <!-- FIN INTEGRANTE: Santiago Mosquera -->
+
+    <!-- ============================================ -->
+    <!-- INTEGRANTE: María Fernández (NO EDITAR fuera de este bloque) -->
+    <!-- ============================================ -->
+    <div class="integrante-card">
+      <div class="avatar">MF</div>
+      <p class="integrante-nombre">María Fernández</p>
+      <p class="integrante-user">@mfernandez22</p>
+      <p class="integrante-fecha">📅 22 / 07 / 2002</p>
+      <span class="integrante-grupo">Grupo B</span>
+    </div>
+    <!-- FIN INTEGRANTE: María Fernández -->
+
+    <!-- ============================================ -->
+    <!-- INTEGRANTE: Carlos Quispe (NO EDITAR fuera de este bloque) -->
+    <!-- ============================================ -->
+    <div class="integrante-card">
+      <div class="avatar">CQ</div>
+      <p class="integrante-nombre">Carlos Quispe</p>
+      <p class="integrante-user">@cquispe_dev</p>
+      <p class="integrante-fecha">📅 09 / 11 / 2001</p>
+      <span class="integrante-grupo">Grupo C</span>
+    </div>
+    <!-- FIN INTEGRANTE: Carlos Quispe -->
+
+    <!-- ============================================ -->
+    <!-- INTEGRANTE: Ana Lucía Torres (NO EDITAR fuera de este bloque) -->
+    <!-- ============================================ -->
+    <div class="integrante-card">
+      <div class="avatar">AT</div>
+      <p class="integrante-nombre">Ana Lucía Torres</p>
+      <p class="integrante-user">@aluciatorres</p>
+      <p class="integrante-fecha">📅 03 / 02 / 2003</p>
+      <span class="integrante-grupo">Grupo D</span>
+    </div>
+    <!-- FIN INTEGRANTE: Ana Lucía Torres -->
+
+    <!-- ============================================ -->
+    <!-- INTEGRANTE: Diego Salazar (NO EDITAR fuera de este bloque) -->
+    <!-- ============================================ -->
+    <div class="integrante-card">
+      <div class="avatar">DS</div>
+      <p class="integrante-nombre">Diego Salazar</p>
+      <p class="integrante-user">@dsalazar_gh</p>
+      <p class="integrante-fecha">📅 18 / 05 / 2002</p>
+      <span class="integrante-grupo">Grupo E</span>
+    </div>
+    <!-- FIN INTEGRANTE: Diego Salazar -->
+
+    <!-- ============================================ -->
+    <!-- INTEGRANTE: Luisa Mendoza (NO EDITAR fuera de este bloque) -->
+    <!-- ============================================ -->
+    <div class="integrante-card">
+      <div class="avatar">LM</div>
+      <p class="integrante-nombre">Luisa Mendoza</p>
+      <p class="integrante-user">@lmendoza99</p>
+      <p class="integrante-fecha">📅 27 / 09 / 2003</p>
+      <span class="integrante-grupo">Grupo F</span>
+    </div>
+    <!-- FIN INTEGRANTE: Luisa Mendoza -->
+
+  </main>
+
+  <footer class="footer">
+    <p>Los Peloteros · Taller Mundialista · 2026 · <a href="index.html">Volver al inicio</a></p>
+  </footer>
+
+</body>
+</html>

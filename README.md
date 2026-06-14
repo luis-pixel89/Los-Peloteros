@@ -101,7 +101,42 @@ docs: actualización de documentación
 
 ---
 
-## 🌐 Deploy en Vercel
+## ⚠️ Resolución de Conflictos de Merge
+
+Cuando dos personas editan el **mismo archivo** (ej. `index.html` o `integrantes.html`), Git puede mostrar algo así:
+
+```html
+<<<<<<< HEAD
+<div class="integrante-card">
+  <p>María Fernández</p>
+</div>
+=======
+<div class="integrante-card">
+  <p>Carlos Quispe</p>
+</div>
+>>>>>>> origin/dev
+```
+
+### Cómo resolverlo:
+
+1. Abre el archivo en conflicto — verás las marcas `<<<<<<<`, `=======`, `>>>>>>>`.
+2. Decide qué contenido conservar. En `integrantes.html`, normalmente **se conservan ambos bloques** (cada uno es la tarjeta de una persona distinta).
+3. Borra las líneas `<<<<<<<`, `=======`, `>>>>>>>` manualmente.
+4. Guarda el archivo.
+5. Marca el conflicto como resuelto:
+   ```bash
+   git add integrantes.html
+   git commit -m "fix: resuelve conflicto de merge en integrantes.html"
+   git push origin dev
+   ```
+
+### Para minimizar conflictos:
+
+- En `integrantes.html`, cada persona edita **solo su bloque**, delimitado por comentarios `<!-- INTEGRANTE: Nombre -->` ... `<!-- FIN INTEGRANTE: Nombre -->`.
+- Haz `git pull` con frecuencia, antes de empezar a trabajar.
+- Haz commits pequeños y frecuentes, no un solo commit gigante al final.
+
+---
 
 1. Ingresa a [vercel.com](https://vercel.com) y conecta tu cuenta GitHub.
 2. Importa el repositorio `Los_Peloteros`.
